@@ -3,7 +3,6 @@
 
 Djoser is a convenient library for handling authentication in Django Rest Framework. It works with Django's built-in authentication system and provides a set of RESTful API endpoints for registration, authentication, password reset, and other user actions. Here's how to set up Djoser for user authentication, including the login process and the relevant endpoints.
 
-### 1. Install Djoser
 
 
 ### Djoser Endpoints for Authentication
