@@ -1,13 +1,15 @@
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import CategoryViewSet, BooksViewSet
 
-# to show images
-# from django.contrib.staticfiles.urls import static
+
+
+
+
+router = DefaultRouter()
+router.register(r'categories', CategoryViewSet)
+router.register(r'books', BooksViewSet)
 
 urlpatterns = [
-
-    # path('', include('book.urls')),
-
-
-    # Djoser
-
+    path('', include(router.urls)),
 ]
