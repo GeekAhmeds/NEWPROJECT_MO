@@ -110,3 +110,95 @@ This setup provides you with a robust authentication system for your Django Rest
 - `{id}` in the URLs should be replaced with the actual ID of the category or book you are trying to access.
 - When creating or updating records, ensure that your request body contains the necessary data formatted as JSON, and the appropriate headers are set (e.g., `Content-Type: application/json`).
 - The actual path to these endpoints may vary depending on how you've set up your Django project's root URL configuration. The above paths assume that the app's `urls.py` is directly included in the project's `urls.py`.
+
+
+
+
+## =======================================================================
+
+
+
+
+
+---
+
+### API Documentation for Application
+the url is ## https://movieproject0001.pythonanywhere.com/api/v1/
+#### Models
+
+1. **Category**
+   - **Fields**:
+     - `name`: String (max length: 200, optional)
+     - `image`: Image (optional, stored in `uploads/category/`)
+     - `description`: Text (max length: 200, optional)
+
+2. **Books**
+   - **Fields**:
+     - `title`: String (max length: 20)
+     - `author`: String (max length: 20, optional)
+     - `cover`: Image (optional, stored in `uploads/books/`)
+     - `description`: Text (max length: 200, optional)
+     - `audio_link`: URL (max length: 200, optional)
+     - `rate`: Positive Integer (default: 1, optional)
+     - `cats`: ForeignKey (links to Category)
+     - `publish_date`: Date
+
+#### Endpoints
+
+Assuming standard RESTful endpoints with Django Rest Framework:
+
+1. **Categories**
+   - List Categories: `GET /categories/`
+   - Retrieve Category: `GET /categories/{id}/`
+   - Create Category: `POST /categories/`
+   - Update Category: `PUT /categories/{id}/`
+   - Delete Category: `DELETE /categories/{id}/`
+
+2. **Books**
+   - List Books: `GET /books/`
+   - Retrieve Book: `GET /books/{id}/`
+   - Create Book: `POST /books/`
+   - Update Book: `PUT /books/{id}/`
+   - Delete Book: `DELETE /books/{id}/`
+
+#### Example Data Structure
+
+- **Category JSON Object**:
+  ```json
+  {
+      "name": "Fiction",
+      "image": "url_to_image",
+      "description": "Fiction books category"
+  }
+  ```
+
+- **Books JSON Object**:
+  ```json
+  {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "cover": "url_to_cover_image",
+      "description": "A novel set in the Jazz Age",
+      "audio_link": "url_to_audio",
+      "rate": 5,
+      "cats": 1,  // Category ID
+      "publish_date": "2023-01-01"
+  }
+  ```
+
+#### Authentication & Permissions
+
+- Describe if and how authentication is required to access these endpoints.
+- Mention any permission levels or user roles necessary for certain actions.
+
+#### Error Handling
+
+- Provide details on how errors are returned (e.g., status codes, error messages).
+
+#### Pagination
+
+- If applicable, explain how pagination is handled in list endpoints.
+
+#### Filtering & Sorting
+
+- Provide details on any filtering or sorting options available on list endpoints.
