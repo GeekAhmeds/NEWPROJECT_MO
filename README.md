@@ -2,6 +2,55 @@
 
 
 
+Djoser Endpoints for Authentication
+User Registration
+POST /auth/users/
+Endpoint for user registration. Requires user data, like username, email, and password.
+
+User Activation
+POST /auth/users/activation/
+Endpoint for user account activation (if SEND_ACTIVATION_EMAIL is enabled). Requires activation token.
+
+Token Creation (Login)
+POST /auth/token/login/ (If using Token Authentication)
+OR
+POST /auth/jwt/create/ (If using JWT Authentication)
+Endpoint for logging in. The user provides credentials and receives an authentication token in response.
+
+Token Deletion (Logout)
+POST /auth/token/logout/ (If using Token Authentication)
+Endpoint for logging out. It deletes the user's authentication token (if token-based auth is used).
+
+Password Reset
+POST /auth/users/reset_password/
+Endpoint for requesting a password reset.
+
+Password Reset Confirmation
+POST /auth/users/reset_password_confirm/
+Endpoint for confirming a password reset. Requires the token sent by email.
+
+User Details
+GET /auth/users/me/
+Retrieve or update the authenticated user's details.
+
+Notes:
+Djoser uses token-based authentication by default, but you can configure it to use JSON Web Token (JWT) authentication.
+The actual endpoints might slightly vary based on your project's URL configuration and the version of Djoser.
+Remember to secure your API with appropriate permissions. Djoser works well with Django's permission classes.
+For JWT Authentication, you would need to install additional packages like djangorestframework-simplejwt.
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Category Endpoints
 1. **List all Categories**  
    `GET /categories/`  
